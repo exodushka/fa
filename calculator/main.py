@@ -1,6 +1,6 @@
 OPERATIONS_LIST = ["минус", "плюс", "умножить"]
 
-def calc(s):
+def calc(s: str):
     s = s.split()
     num1 = 0
     num2 = 0
@@ -9,6 +9,7 @@ def calc(s):
     operation_code = -1
 
     for i in s:
+        if i == "на": continue
         if i not in OPERATIONS_LIST:
             match flag_num:
                 case False:
@@ -27,11 +28,10 @@ def calc(s):
             num = num1 + num2
         case 3:
             num = num1 * num2
-    print(num)
 
-    return s
+    return to_str(str(num)), num
 
-def operation(s):
+def operation(s: str):
     match s:
         case "минус":
             return 1
@@ -40,7 +40,7 @@ def operation(s):
         case "умножить":
             return 3
 
-def number(word):
+def number(word: str):
     match word:
         case "один": 
             return 1
@@ -97,5 +97,77 @@ def number(word):
         case "девяносто":
             return 90
 
+def to_str(num: str):
+    def onenum(s: str):
+        match s:
+            case "1":
+                return "один"
+            case "2":
+                return "два"
+            case "3":
+                return "три"
+            case "4":
+                return 'четыре'
+            case "5":
+                return "пять"
+            case "6":
+                return "шесть"
+            case "7":
+                return "семь"
+            case "8":
+                return "восемь"
+            case "9":
+                return "девять"
+            case _:
+                raise "Ошибка onenum"
+    def twonum(s: str):
+        match s:
+            case "10":
+                return "десять"
+            case "11":
+                return "одиннадцать"
+            case "12":
+                return "двенадцать"
+            case "13":
+                return "тринадцать"
+            case "14":
+                return "четырнадцать"
+            case "15":
+                return "пятнадцать"
+            case "16":
+                return "шестнадцать"
+            case "17":
+                return "семьнадцать"
+            case "19":
+                return "девятнадцать"
+            case "2":
+                return "двадцать"
+            case "3":
+                return "тридцать"
+            case "4":
+                return "сорок"
+            case "5":
+                return "пятьдесят"
+            case "6":
+                return "шестьдесят"
+            case "7":
+                return "семьдесят"
+            case "8":
+                return "восемьдесят"
+            case "9":
+                return "девяносто"
+            case _:
+                raise "Ошибка twonum"
+
+    if len(num) == 1:
+        return onenum(num)
+    elif len(num) == 2:
+        if int(num) < 20:
+            return twonum(num)
+        else:
+            return twonum(num[0]) + " " + onenum(num[1])
+    else:
+        raise "Неверная длинна ответа"
+
 if __name__ == "__main__":
-    calc(input())
+    print(calc(input()))
