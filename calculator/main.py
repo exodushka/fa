@@ -29,7 +29,7 @@ def calc(s: str):
         case 3:
             num = num1 * num2
 
-    return to_str(str(num)), num
+    return to_str(str(num))#, num
 
 def operation(s: str):
     match s:
@@ -138,6 +138,8 @@ def to_str(num: str):
                 return "шестнадцать"
             case "17":
                 return "семьнадцать"
+            case "18":
+                return "восемьнадцать"
             case "19":
                 return "девятнадцать"
             case "2":
