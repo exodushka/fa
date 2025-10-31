@@ -19,8 +19,37 @@ for item in string_list:
         unique_list.append(item)
 
 result_tuple = tuple([unique_list])
-print('tuple without repetions elements', result_tuple)"""
+print('tuple without repetions elements', result_tuple)
+"""
+"""
 
 q = [1,2,3]
 g = q.pop(1)
 print (g)
+"""
+def reverse_words(text):
+    q = []
+    for n, i in enumerate(text):
+        if n == 0:
+            if i == " ":
+                q.append(" ")
+            else:
+                q.append("t")
+        if i != " " and text[n-1] != " ":
+            pass
+        elif i == " ":
+            q.append(" ")
+        elif i != " " and text[n-1] == " ":
+            q.append("t")
+    reversed_text = []
+    for i in text.split():
+        reversed_text.append(i[::-1])
+    answer = ""
+    k = 0 
+    for i in q:
+        if i == " ":
+            answer += " "
+        else:
+            answer += reversed_text[k]
+            k+=1
+    return q

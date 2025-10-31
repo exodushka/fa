@@ -22,7 +22,7 @@ def game():
                 printdata(bulls = bulls, cows = cows)
             else:
                 printdata(0,0)
-        except ValueError:
+        except:
             print("Введено некоректное число")
 
     print("Победа")
