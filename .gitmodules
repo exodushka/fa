@@ -1,0 +1,3 @@
+[submodule "web/ono-tebe-nado-fd"]
+	path = web/ono-tebe-nado-fd
+	url = https://github.com/exodushka/ono-tebe-nado-fd.git
